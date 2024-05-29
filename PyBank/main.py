@@ -5,7 +5,7 @@ import csv
 file = './Resources/budget_data.csv'
 
 first_row = True
-month = 0
+total_months = 0
 profit_loss = 0
 first_row = True
 previous_profit_losses = 0
@@ -23,7 +23,7 @@ with open(file, "r") as csvfile:
 ## calculate total months and total profit/losses
 
     for row in csvreader:
-        month = month +1 
+        total_months = total_months +1 
         
         profit_loss += int(row[profit_losses_index])
 
@@ -78,18 +78,13 @@ with open(file, "r") as csvfile:
     lowest_change_month = next(csvreader)[0]  
     
 
-# output = (
-#     (f"Month: {month} \nSum of Profit/Losses: {profit_loss}"),
-#     (f"Average Change in Profit/Losses: {average_change}"),
-#     (f"Highest Change in Profit/Losses: ${highest_change} (Month: {highest_change_month})"),
-#     (f"Lowest Change in Profit/Losses: ${lowest_change} (Month: {lowest_change_month})")
-# )
+
 
 output = (
     f"FinancialAnalysis\n"
     f"-------------------------\n"
-    f"Month: {month} \nSum of Profit/Losses: {profit_loss}\n"
-    f"Average Change in Profit/Losses: {average_change}\n"
+    f"total_months: {total_months} \nSum of Profit/Losses: {profit_loss}\n"
+    f"Average Change in Profit/Losses: ${average_change}\n"
     f"Highest Change in Profit/Losses: ${highest_change} (Month: {highest_change_month})\n"
     f"Lowest Change in Profit/Losses: ${lowest_change} (Month: {lowest_change_month})\n"
 )

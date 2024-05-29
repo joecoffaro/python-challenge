@@ -1,7 +1,7 @@
 FinancialAnalysis
 -------------------------
-total_months: 86 
+Month: 86 
 Sum of Profit/Losses: 22564198
-Average Change in Profit/Losses: $-8311.11
+Average Change in Profit/Losses: -8311.11
 Highest Change in Profit/Losses: $1862002 (Month: Aug-16)
 Lowest Change in Profit/Losses: $-1825558 (Month: Feb-14)
