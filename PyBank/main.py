@@ -1,9 +1,10 @@
+import os
 import csv
 
 
 
-file = './Resources/budget_data.csv'
-
+file_path = os.path.join(os.path.dirname(__file__), "Resources", "budget_data.csv")
+print(file_path)
 first_row = True
 total_months = 0
 profit_loss = 0
@@ -12,7 +13,7 @@ previous_profit_losses = 0
 changes = []
 total_profit_losses = 0
 
-with open(file, "r") as csvfile:
+with open(file_path, "r") as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
 
@@ -89,6 +90,6 @@ output = (
     f"Lowest Change in Profit/Losses: ${lowest_change} (Month: {lowest_change_month})\n"
 )
 print(output)
-output_file = ('./analysis/analysis.txt')
+output_file = os.path.join(os.path.dirname(__file__), "analysis", "analysis.txt")
 with open(output_file, 'w') as file:
     file.write(output)

@@ -1,9 +1,10 @@
-
+import os
 import csv
 
 # set path
 
-file = 'C:\\Users\\Joe Coffaro\\Desktop\\python-challenge\\PyPoll\\Resources\\election_data.csv'
+file_path = os.path.join(os.path.dirname(__file__), "Resources", "election_data.csv")
+print(file_path)
 
 # variables
 
@@ -16,7 +17,7 @@ winning_count = 0
 
 # Open and read csv
 
-with open(file, "r") as csvfile:
+with open(file_path, "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csvreader)
    
@@ -32,7 +33,12 @@ with open(file, "r") as csvfile:
         
         # candiate name and votes
 
-with open("./analysis/election_analysis.txt", "w") as outputfile:
+file_path = os.path.join(os.path.dirname(__file__), "analysis", "analysis.txt")
+
+
+
+
+with open(file_path, "w") as output_file:
 
     output = (
      f"Election Analysis\n"
@@ -41,7 +47,7 @@ with open("./analysis/election_analysis.txt", "w") as outputfile:
      f"--------------------------\n"
     )
     print(output)
-    outputfile.write(output)
+    output_file.write(output)
     for candidate in candidate_info:
         votes = candidate_info.get(candidate)
         
@@ -55,7 +61,7 @@ with open("./analysis/election_analysis.txt", "w") as outputfile:
         voter_output = f"{candidate}: {vote_percentage:.3f}% ({votes}) \n"
         print(voter_output)
 
-        outputfile.write(voter_output)
+        output_file.write(voter_output)
 
     winning_candidate_summary = (
          f"----------------------\n"
@@ -64,7 +70,7 @@ with open("./analysis/election_analysis.txt", "w") as outputfile:
     )
     print(winning_candidate_summary)
 
-    outputfile.write(winning_candidate_summary)
+    output_file.write(winning_candidate_summary)
     
     
  
